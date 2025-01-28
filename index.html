@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCity Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>SmartCity Dashboard</h2>
+        <ul>
+            <li onclick="switchTab('home')">🏠 Home</li>
+            <li onclick="switchTab('traffic')">🚦 Traffic Updates</li>
+            <li onclick="switchTab('weather')">☁️ Weather</li>
+            <li onclick="switchTab('events')">📅 Events</li>
+            <li onclick="switchTab('alerts')">🚨 Alerts</li>
+            <li onclick="switchTab('map')">🗺️ City Map</li>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>SmartCity Dashboard</h1>
+            <input type="text" id="city-search" placeholder="Search city..." onkeypress="handleCitySearch(event)">
+            <button onclick="toggleDarkMode()">🌙 Dark Mode</button>
+        </header>
+
+        <div id="home" class="tab-content">
+            <h2>Welcome to SmartCity</h2>
+            <p>Choose a category from the sidebar to explore real-time updates.</p>
+        </div>
+
+        <div id="traffic" class="tab-content hidden">
+            <h2>Live Traffic Updates</h2>
+            <canvas id="trafficChart"></canvas>
+        </div>
+
+        <div id="weather" class="tab-content hidden">
+            <h2>Weather Conditions</h2>
+            <p id="weather-info">Fetching weather data...</p>
+        </div>
+
+        <div id="events" class="tab-content hidden">
+            <h2>Upcoming City Events</h2>
+            <ul id="events-list"></ul>
+        </div>
+
+        <div id="alerts" class="tab-content hidden">
+            <h2>Emergency Alerts</h2>
+            <div id="alerts-container"></div>
+        </div>
+
+        <div id="map" class="tab-content hidden">
+            <h2>City Map</h2>
+            <div id="map-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
